@@ -43,7 +43,7 @@ create table is_clubhead_of(
 
 
 create table post(
-    post_id varchar(10) PRIMARY KEY, 
+    post_id VARCHAR(10) PRIMARY KEY, 
     title varchar(500), 
     body varchar(1000), 
     last_updated varchar(20), 
@@ -59,7 +59,7 @@ create table tag(
     );
 
 create table get_tag( 
-    post_id varchar(10) NOT NULL,
+    post_id VARCHAR(10) NOT NULL,
     t_id int NOT NULL,
     PRIMARY KEY (post_id, t_id),
     FOREIGN KEY (post_id) REFERENCES post (post_id),
