@@ -79,36 +79,38 @@ const ManageClubs = () => {
 // }
 
    return(
-    <div class="container">
-    <h2 className="text-center mt-5">My Clubs</h2>
-    <p>The table shows all clubs stored in the database.</p>            
-    <table class="table">
-      <thead>
-        <tr>
+    <Fragment>
+      <div class="container">
+      <h2 className="text-center mt-5">My Clubs</h2>
+      <p>The table shows all clubs stored in the database.</p>            
+      <table class="table">
+        <thead>
+          <tr>
 
-          <th>Club ID</th>
-          <th>ClubName</th>
-          <th>Follow status</th>
-          <th>Update</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
-      <tbody>
-          {followList.map(a=>(
-               <tr>
-               <td >{a.id}</td>
-               <td>{a.name}</td>
-               <td >{a.following}</td>
-               <td><button className="btn btn-success"
+            <th>Club ID</th>
+            <th>ClubName</th>
+            <th>Follow status</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+            {followList.map(a=>(
+                <tr>
+                <td >{a.id}</td>
+                <td>{a.name}</td>
+                <td >{a.following}</td>
+                <td><button className="btn btn-success"
                                 //onClick={() => {setClubId(a.id); startFollowing();}}
-                                >Follow</button></td>
-               <td><button className="btn btn-danger">Unfollow</button></td>
-             </tr>
-          ))}
+                                  >Follow</button></td>
+                <td><button className="btn btn-danger">Unfollow</button></td>
+              </tr>
+            ))}
        
-      </tbody>
-    </table>
-  </div>
+        </tbody>
+      </table>
+    </div>
+  </Fragment>
    );
 }
 

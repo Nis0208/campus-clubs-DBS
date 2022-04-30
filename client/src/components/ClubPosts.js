@@ -34,7 +34,7 @@ const ClubPosts = () =>{
       const deletePost = await fetch(`http://localhost:5000/campusclubs/post/${id}`,{
         method: "DELETE" 
       });
-      setPosts(post.filter(post => post.post_id != id));
+      setPosts(posts.filter(posts => posts.post_id != id));
       console.log(deletePost)
     } catch (err) {
       console.error(err.message)

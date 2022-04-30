@@ -39,7 +39,7 @@ const AdminHome = () => {
       const deleteClub = await fetch(`http://localhost:5000/campusclubs/club/${id}`,{
         method: "DELETE" 
       });
-      setClubId(club.filter(club => club.club_id != id));
+      setClubId(clubId.filter(club => clubId.club_id != id));
       console.log(deleteClub)
     } catch (err) {
       console.error(err.message)
