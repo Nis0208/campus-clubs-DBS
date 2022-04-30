@@ -11,6 +11,7 @@ const ClubPosts = () =>{
    const clubName = location.state.clubName;
 
    const [posts, setPosts ] = useState([]);
+
    const getPosts = async e => {
     try {
         //get posts for club
@@ -25,6 +26,20 @@ const ClubPosts = () =>{
          console.error(error.message);
     }
    }
+
+   //deletePost function : 
+  
+  const deletePost = async (id) => {
+    try {
+      const deletePost = await fetch(`http://localhost:5000/campusclubs/post/${id}`,{
+        method: "DELETE" 
+      });
+      setPosts(post.filter(post => post.post_id != id));
+      console.log(deletePost)
+    } catch (err) {
+      console.error(err.message)
+    }
+  }
    
 
     return(
@@ -39,6 +54,7 @@ const ClubPosts = () =>{
                                 <h5 class="card-title">{post.title}</h5>
                                 <p class="card-text">{post.body}</p>
                                 <p class="card-text">Attached media: <i>{post.media_link}</i></p>
+                                <button className="btn btn-lg btn-danger" onClick = {()=> deletePost(post.post_id)} >Delete Post</button>
                             </div>
                             </div>
                         ))}

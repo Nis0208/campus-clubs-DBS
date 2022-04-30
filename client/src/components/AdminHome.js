@@ -29,8 +29,23 @@ const AdminHome = () => {
          console.error(error.message);
     }
 
-console.log(userId);
-   }
+    console.log(userId);
+  }
+  
+  //deleteClub function : 
+  
+  const deleteClub = async (id) => {
+    try {
+      const deleteClub = await fetch(`http://localhost:5000/campusclubs/club/${id}`,{
+        method: "DELETE" 
+      });
+      setClubId(club.filter(club => club.club_id != id));
+      console.log(deleteClub)
+    } catch (err) {
+      console.error(err.message)
+    }
+  }
+
 
    return(
     
@@ -54,11 +69,11 @@ console.log(userId);
       </thead>
       <tbody>
           {allclubs.map(club=>(
-               <tr>
+               <tr key={club.club_id}>
                <td>{club.club_id}</td>
                <td>{club.club_name}</td>
                <td><button className="btn btn-warning">Update</button></td>
-               <td><button className="btn btn-danger">Delete</button></td>
+               <td><button className="btn btn-danger" onClick = {() => deleteClub(club.club_id)}>Delete Club</button></td>
              </tr>
           ))}
        
