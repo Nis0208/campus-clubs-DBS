@@ -298,11 +298,43 @@ app.delete("/campusclubs/user/delete/:id", async (req, res) =>{
 });
 
 //delete club
+app.delete("/campusclubs/club/delete/:id", async (req, res) =>{
+    try {
+        const{id} = req.params;
+        const club = await pool.query("DELETE FROM club WHERE club_id = $1", [id]);
+        res.json("club DELETED!");
+    } catch (error) {
+        console.error(error);
+    }
+});
 
 //delete post
+app.delete("/campusclubs/post/delete/:id", async (req, res) =>{
+    try {
+        const{id} = req.params;
+        const post = await pool.query("DELETE FROM post WHERE post_id = $1", [id]);
+        res.json("post DELETED!");
+    } catch (error) {
+        console.error(error);
+    }
+});
 
 //update post
-
+app.put("/campusclubs/post/update/:id", async (req, res) =>{
+    try {
+        const id = req.params;
+        const title = req.body;
+        const body = req.body;
+        const lastUpdated = req.body;
+        const urgent = req.params;
+        const media = req.body;
+        const club = req.params;
+        const updatePost = await pool.query("", []);
+        res.json("post updated")
+    } catch (error) {
+        console.error(error)
+    }
+});
 //update club name
 
 app.listen(5000, () => {

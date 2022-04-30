@@ -33,9 +33,7 @@ const ClubheadHome = () => {
              console.error(error.message);
         }
 
-    console.log(userId);
-       
-        
+        console.log(userId);
     };
 
  
@@ -54,6 +52,7 @@ const ClubheadHome = () => {
               <div class="card-body">
                 <h5 class="card-title" > {club.club_name}</h5>
                 <p class="card-text" >{club.category}</p>
+                
         </div>
         </div>
             ))}

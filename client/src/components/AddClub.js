@@ -39,6 +39,7 @@ const AddClub = () => {
         }
     };
     
+    
     return(
         <Fragment>
             <h1 className="text-center mt-5">Add a new club</h1>
